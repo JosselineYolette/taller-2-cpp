@@ -2,23 +2,18 @@
 using namespace std;
 
 int main() {
-    int min1, min2, seg1, seg2;
-    cout << "Ingrese el tiempo del primer atleta en minutos y segundos: <\n";
+    int min1, seg1, min2, seg2;
+    cout << "Ingrese los minutos y segundos del primer atleta: ";
     cin >> min1 >> seg1;
-    cout << "Ingrese el tiempo del segundo atleta en minutos y segundos: \n";
+    cout << "Ingrese los minutos y segundos del segundo atleta: ";
     cin >> min2 >> seg2;
 
-    int totalMin = min1 + min2;
     int totalSeg = seg1 + seg2;
+    int totalMin = min1 + min2 + totalSeg / 60;
+    int totalHor = totalMin / 60;
 
-    // Convertir segundos a minutos
-    totalMin += totalSeg / 60;
-    totalSeg %= 60;
+    cout << "El tiempo total utilizado por ambos atletas es: \n" << totalHor << " horas\n" << totalMin % 60 << " minutos \n" << totalSeg % 60 << " segundos" << endl;
 
-    // Convertir minutos a horas
-    int totalHoras = totalMin / 60;
-    totalMin %= 60;
-
-    cout << "El tiempo total utilizado por ambos atletas es: " << totalHoras << " horas, " << totalMin << " minutos y " << totalSeg << " segundos." << endl;
     return 0;
 }
+
